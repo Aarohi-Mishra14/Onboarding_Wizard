@@ -1,0 +1,617 @@
+/* ==========================================================================
+   Design tokens
+   ========================================================================== */
+
+:root {
+  --color-bg: #f5f5f1;
+  --color-surface: #ffffff;
+  --color-border: #e3e2db;
+  --color-border-strong: #d3d2c8;
+
+  --color-text-primary: #191b20;
+  --color-text-secondary: #686a70;
+  --color-text-muted: #93958f;
+
+  --color-accent: #2e3468;
+  --color-accent-hover: #232752;
+  --color-accent-soft: #eceef7;
+
+  --color-error: #b3261e;
+  --color-error-soft: #fbebea;
+  --color-success: #1e8e5a;
+  --color-success-soft: #e9f5ef;
+
+  --font-display: 'Manrope', 'Segoe UI', sans-serif;
+  --font-body: 'Inter', 'Segoe UI', sans-serif;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  --shadow-card: 0 1px 2px rgba(20, 20, 15, 0.04), 0 12px 32px -16px rgba(20, 20, 15, 0.14);
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+}
+
+/* ==========================================================================
+   Base / reset
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+}
+
+button {
+  font-family: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Page layout
+   ========================================================================== */
+
+.page {
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  padding: var(--space-7) var(--space-4);
+}
+
+.page-inner {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: var(--space-5);
+}
+
+.brand-mark {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: var(--color-accent);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 6px 14px -6px rgba(46, 52, 104, 0.55);
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.005em;
+  color: var(--color-text-primary);
+}
+
+.page-heading {
+  text-align: center;
+  margin-bottom: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-heading h1 {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin-bottom: var(--space-2);
+}
+
+.page-heading p {
+  font-size: 15px;
+  max-width: 460px;
+  white-space: nowrap;
+  line-height: 1.5;
+}
+
+.page-footnote {
+  margin-top: var(--space-5);
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   Wizard card
+   ========================================================================== */
+
+.wizard-card {
+  width: 100%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-6);
+}
+
+.wizard-body {
+  margin-top: var(--space-6);
+}
+
+/* ==========================================================================
+   Progress indicator (signature element)
+   ========================================================================== */
+
+.progress-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+}
+
+.progress-count {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.progress-label {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.progress-track {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--space-6);
+}
+
+.progress-connector {
+  flex: 1 1 auto;
+  height: 2px;
+  min-width: 24px;
+  margin-top: 11px;
+  background: var(--color-border);
+  border-radius: 999px;
+  transition: background 0.35s ease;
+}
+
+.progress-connector--filled {
+  background: var(--color-accent);
+}
+
+.progress-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  gap: var(--space-2);
+}
+
+/* The first and last nodes anchor their label inward (toward the middle
+   of the card) instead of centering it, so long labels never spill past
+   the card's own padding/border on either side. */
+.progress-node--start {
+  align-items: flex-start;
+}
+
+.progress-node--end {
+  align-items: flex-end;
+}
+
+.progress-node-dot {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--color-surface);
+  border: 2px solid var(--color-border-strong);
+  color: var(--color-text-muted);
+  transition: all 0.2s ease;
+}
+
+.progress-node--current .progress-node-dot {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  box-shadow: 0 0 0 4px var(--color-accent-soft);
+}
+
+.progress-node--complete .progress-node-dot {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+
+.progress-node-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.progress-node--current .progress-node-label {
+  color: var(--color-text-primary);
+}
+
+/* ==========================================================================
+   Step form
+   ========================================================================== */
+
+.step-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.step-heading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+}
+
+.step-heading p {
+  font-size: 14px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+input,
+select {
+  appearance: none;
+  width: 100%;
+  height: 44px;
+  padding: 0 var(--space-3);
+  font-size: 14px;
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23686a70'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+input::placeholder {
+  color: var(--color-text-muted);
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+}
+
+input.input-error,
+select.input-error {
+  border-color: var(--color-error);
+}
+
+input.input-error:focus,
+select.input-error:focus {
+  box-shadow: 0 0 0 3px var(--color-error-soft);
+}
+
+.field-error {
+  font-size: 12.5px;
+  color: var(--color-error);
+}
+
+.password-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input input {
+  padding-right: 44px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 4px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.password-toggle:hover {
+  color: var(--color-text-primary);
+  background: var(--color-bg);
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.step-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.step-actions--single {
+  justify-content: flex-end;
+}
+
+.btn {
+  height: 44px;
+  padding: 0 var(--space-5);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.05s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--color-accent-hover);
+}
+
+.btn-primary:disabled {
+  background: var(--color-border);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-strong);
+}
+
+.btn-secondary:hover {
+  background: var(--color-bg);
+}
+
+/* ==========================================================================
+   Review step
+   ========================================================================== */
+
+.review-section {
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.review-section:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.review-section h3 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4) var(--space-4);
+  margin: 0;
+}
+
+.review-item dt {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-bottom: 2px;
+}
+
+.review-item dd {
+  margin: 0;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+/* ==========================================================================
+   Success state
+   ========================================================================== */
+
+.success-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-4);
+  padding: var(--space-7) var(--space-6);
+}
+
+.success-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--color-success-soft);
+  color: var(--color-success);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-card h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.success-card p {
+  font-size: 14.5px;
+  max-width: 320px;
+}
+
+.success-card .btn {
+  margin-top: var(--space-2);
+}
+
+/* ==========================================================================
+   Step transition
+   ========================================================================== */
+
+@keyframes step-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.step-form {
+  animation: step-enter 0.25s ease;
+}
+
+.success-card {
+  animation: step-enter 0.3s ease;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 560px) {
+  .page {
+    padding: var(--space-5) var(--space-3);
+  }
+
+  .wizard-card {
+    padding: var(--space-5);
+    border-radius: var(--radius-md);
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-node-label {
+    display: none;
+  }
+
+  .progress-connector {
+    min-width: 16px;
+  }
+
+  .progress-track {
+    margin-bottom: var(--space-5);
+  }
+
+  .page-heading h1 {
+    font-size: 23px;
+  }
+
+  .page-heading p {
+    white-space: normal;
+    max-width: 280px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
