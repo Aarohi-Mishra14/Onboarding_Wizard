@@ -4,6 +4,8 @@ A multi-step onboarding form built with React. Instead of dumping every field on
 
 Built as a small SaaS/FinTech-style onboarding flow, with a focus on getting the state management, validation and UX details right rather than just making the forms work.
 
+🔗 Live demo: https://onboarding-wizard-eight.vercel.app
+
 ## Features
 
 - Three-step wizard (Personal Info → Account Details → Review & Submit)
