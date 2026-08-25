@@ -1,6 +1,5 @@
 import { z } from 'zod';
 
-// STEP 1 — validates the personal information fields only.
 export const personalInfoSchema = z.object({
   fullName: z
     .string()
@@ -15,8 +14,6 @@ export const personalInfoSchema = z.object({
   gender: z.string().min(1, 'Please select an option.'),
 });
 
-// The raw account fields, kept separate from the "passwords match" rule so
-// the full schema below can reuse the fields without inheriting the refine.
 export const accountFieldsSchema = z.object({
   email: z
     .string()
@@ -33,14 +30,11 @@ export const accountFieldsSchema = z.object({
   confirmPassword: z.string().min(1, 'Please confirm your password.'),
 });
 
-// STEP 2 — account fields plus the "passwords match" rule.
 export const accountDetailsSchema = accountFieldsSchema.refine(
   (data) => data.password === data.confirmPassword,
   { message: 'Passwords do not match.', path: ['confirmPassword'] }
 );
 
-// The complete payload, used as a final safety check on the review step
-// before the Submit button is enabled.
 export const onboardingSchema = z
   .object({
     ...personalInfoSchema.shape,

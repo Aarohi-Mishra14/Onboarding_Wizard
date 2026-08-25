@@ -3,9 +3,6 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { personalInfoSchema } from '../schemas/onboardingSchema';
 
-// Each step manages its own React Hook Form instance for fast, local
-// validation. Its default values come from the parent's unified formData,
-// so nothing is lost if the user has already visited this step before.
 function PersonalInfo({ defaultValues, onNext }) {
   const {
     register,

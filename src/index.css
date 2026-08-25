@@ -1,7 +1,3 @@
-/* ==========================================================================
-   Design tokens
-   ========================================================================== */
-
 :root {
   --color-bg: #f5f5f1;
   --color-surface: #ffffff;
@@ -38,10 +34,6 @@
   --space-6: 32px;
   --space-7: 48px;
 }
-
-/* ==========================================================================
-   Base / reset
-   ========================================================================== */
 
 * {
   box-sizing: border-box;
@@ -83,10 +75,6 @@ button {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
-
-/* ==========================================================================
-   Page layout
-   ========================================================================== */
 
 .page {
   min-height: 100%;
@@ -162,10 +150,6 @@ button {
   color: var(--color-text-muted);
 }
 
-/* ==========================================================================
-   Wizard card
-   ========================================================================== */
-
 .wizard-card {
   width: 100%;
   background: var(--color-surface);
@@ -178,10 +162,6 @@ button {
 .wizard-body {
   margin-top: var(--space-6);
 }
-
-/* ==========================================================================
-   Progress indicator (signature element)
-   ========================================================================== */
 
 .progress-meta {
   display: flex;
@@ -233,9 +213,6 @@ button {
   gap: var(--space-2);
 }
 
-/* The first and last nodes anchor their label inward (toward the middle
-   of the card) instead of centering it, so long labels never spill past
-   the card's own padding/border on either side. */
 .progress-node--start {
   align-items: flex-start;
 }
@@ -282,10 +259,6 @@ button {
 .progress-node--current .progress-node-label {
   color: var(--color-text-primary);
 }
-
-/* ==========================================================================
-   Step form
-   ========================================================================== */
 
 .step-form {
   display: flex;
@@ -400,10 +373,6 @@ select.input-error:focus {
   background: var(--color-bg);
 }
 
-/* ==========================================================================
-   Buttons
-   ========================================================================== */
-
 .step-actions {
   display: flex;
   justify-content: space-between;
@@ -459,10 +428,6 @@ select.input-error:focus {
   background: var(--color-bg);
 }
 
-/* ==========================================================================
-   Review step
-   ========================================================================== */
-
 .review-section {
   padding-bottom: var(--space-5);
   border-bottom: 1px solid var(--color-border);
@@ -505,10 +470,6 @@ select.input-error:focus {
   color: var(--color-text-primary);
 }
 
-/* ==========================================================================
-   Success state
-   ========================================================================== */
-
 .success-card {
   display: flex;
   flex-direction: column;
@@ -543,10 +504,6 @@ select.input-error:focus {
   margin-top: var(--space-2);
 }
 
-/* ==========================================================================
-   Step transition
-   ========================================================================== */
-
 @keyframes step-enter {
   from {
     opacity: 0;
@@ -565,10 +522,6 @@ select.input-error:focus {
 .success-card {
   animation: step-enter 0.3s ease;
 }
-
-/* ==========================================================================
-   Responsive
-   ========================================================================== */
 
 @media (max-width: 560px) {
   .page {

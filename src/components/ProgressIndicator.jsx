@@ -1,13 +1,6 @@
 import { Fragment } from 'react';
 import { Check } from 'lucide-react';
 
-// Shows how far the user is through the wizard: a text label, and a row of
-// nodes + connecting segments marked as complete / current / upcoming.
-//
-// This uses a flex row rather than absolutely-positioned dots so that the
-// first and last node labels can anchor inward (flex-start / flex-end)
-// instead of centering on the very edge of the track — centering there
-// pushes half of a long label outside the card.
 function ProgressIndicator({ currentStep, labels }) {
   return (
     <div className="progress">

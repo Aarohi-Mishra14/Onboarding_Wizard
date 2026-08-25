@@ -19,11 +19,6 @@ const initialFormData = {
 
 function OnboardingWizard() {
   const [currentStep, setCurrentStep] = useState(1);
-
-  // This is the unified payload the internship brief asks for: each step's
-  // React Hook Form instance only manages its own fields, but every time a
-  // step is completed its data is merged in here — so the parent is always
-  // the single source of truth, and nothing is lost when moving back and forth.
   const [formData, setFormData] = useState(initialFormData);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -42,7 +37,6 @@ function OnboardingWizard() {
   }
 
   function handleSubmit() {
-    // formData is already the complete, merged payload at this point.
     console.log('Onboarding submission:', formData);
     setIsSubmitted(true);
   }

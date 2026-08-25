@@ -8,8 +8,6 @@ const GENDER_LABELS = {
 };
 
 function ReviewStep({ formData, onBack, onSubmit }) {
-  // Both earlier steps already validate on the way here, but this doubles
-  // as a final safety net before the Submit button is enabled.
   const isComplete = onboardingSchema.safeParse(formData).success;
 
   return (
